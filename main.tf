@@ -29,7 +29,7 @@ module "vpc" {
   # elasticache_subnets = ["10.10.31.0/24", "10.10.32.0/24", "10.10.33.0/24"]
   # redshift_subnets    = ["10.10.41.0/24", "10.10.42.0/24", "10.10.43.0/24"]
 
-  # create_database_subnet_route_table    = true
+  create_database_subnet_route_table    = false
   # create_elasticache_subnet_route_table = true
   # create_redshift_subnet_route_table    = true
 
