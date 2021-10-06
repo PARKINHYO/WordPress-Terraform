@@ -3,7 +3,7 @@ variable "vpc_name" {
 }
 
 variable "vpc_cidr" {
-    default = "10.70.0.9/16"
+    default = "10.70.0.0/16"
   
 }
 
