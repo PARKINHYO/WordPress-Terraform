@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-  region = "eu-west-1"
+  region = "ap-northeast-3"
 }
 
 ################################################################################
@@ -20,12 +20,12 @@ module "vpc" {
 
   name = "vpc-separate-private-route-tables"
 
-  cidr = "10.10.0.0/16"
+  cidr = "10.70.0.0/16"
 
   azs                 = ["${local.region}a", "${local.region}b"]
-  private_subnets     = ["10.10.1.0/24", "10.10.2.0/24"]
-  public_subnets      = ["10.10.11.0/24", "10.10.12.0/24"]
-  database_subnets    = ["10.10.21.0/24", "10.10.22.0/24"]
+  private_subnets     = ["10.70.21.0/24", "10.70.22.0/24"]
+  public_subnets      = ["10.70.11.0/24", "10.70.12.0/24"]
+  database_subnets    = ["10.70.31.0/24", "10.70.32.0/24"]
   # elasticache_subnets = ["10.10.31.0/24", "10.10.32.0/24", "10.10.33.0/24"]
   # redshift_subnets    = ["10.10.41.0/24", "10.10.42.0/24", "10.10.43.0/24"]
 
