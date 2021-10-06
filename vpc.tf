@@ -31,9 +31,9 @@ module "vpc" {
   enable_classiclink = var.enable_classiclink
   enable_classiclink_dns_support = var.enable_classiclink_dns_support
 
-  public_subnets_suffix = var.public_subnets_suffix
-  private_subnets_suffix = var.private_subnets_suffix
-  intra_subnets_suffix = var.intra_subnets_suffix
+  public_subnet_suffix = var.public_subnets_suffix
+  private_subnet_suffix = var.private_subnets_suffix
+  intra_subnet_suffix = var.intra_subnets_suffix
 
   vpc_tags = var.vpc_tags
   igw_tags = var.igw_tags
