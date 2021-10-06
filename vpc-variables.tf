@@ -115,14 +115,14 @@ variable "enable_dns_support" {
   
 }
 
-variable "enable_classiclink" {
-  default = true
-}
+# variable "enable_classiclink" {
+#   default = true
+# }
 
-variable "enable_classiclink_dns_support" {
-    default = true
+# variable "enable_classiclink_dns_support" {
+#     default = true
   
-}
+# }
 
 variable "public_subnets_suffix" {
     default = "osaka-snet-public-test-wp-inhyo"
