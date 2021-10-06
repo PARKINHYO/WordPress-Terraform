@@ -23,7 +23,7 @@ jobs:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }} 
       
-      # 설정 파일 포맷 등 틀린게 있나 확인 (main.tf)
+      # 파일 포맷
       - name: Terraform Formats
         id: fmt
         run: terraform fmt -diff
