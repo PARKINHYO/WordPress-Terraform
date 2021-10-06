@@ -4,8 +4,8 @@
 ################################################################################
 resource "aws_eip" "nat" {
   count = 1
-
   vpc = true
+  tags = var.nat_eip_tags
 }
 
 module "vpc" {
@@ -27,9 +27,6 @@ module "vpc" {
 
   enable_dns_hostnames = var.enable_dns_hostnames
   enable_dns_support = var.enable_dns_support
-
-  # enable_classiclink = var.enable_classiclink
-  # enable_classiclink_dns_support = var.enable_classiclink_dns_support
 
   public_subnet_suffix = var.public_subnets_suffix
   private_subnet_suffix = var.private_subnets_suffix
