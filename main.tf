@@ -9,7 +9,7 @@ terraform {
     #   version = "3.0.1"
     # }
   }
-  required_version = ">= 12.31"
+  required_version = ">= 0.14"
 
   backend "remote" {
     organization = "ihp001"
@@ -21,6 +21,5 @@ terraform {
 }
 
 provider "aws" {
-  skip_region_validation = true
   region = "ap-northeast-3"
 }
