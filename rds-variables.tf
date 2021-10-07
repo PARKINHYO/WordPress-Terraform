@@ -15,7 +15,9 @@ variable "rds_name" {
 }
 
 variable "rds_tags" {
-    default = "osaka-rds-test-wp-inhyo"
+    default = {
+      Name = "osaka-rds-test-wp-inhyo"
+    }
   
 }
 
