@@ -9,7 +9,7 @@ terraform {
     #   version = "3.0.1"
     # }
   }
-  required_version = ">= 12.26"
+  required_version = ">= 12.31"
 
   backend "remote" {
     organization = "ihp001"
