@@ -1,3 +1,7 @@
+variable "region" {
+    default = "ap-northeast-3"
+}
+
 variable "vpc_name" {
   default = "osaka-vpc-test-wp-inhyo"
 }
