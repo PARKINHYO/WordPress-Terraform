@@ -29,7 +29,7 @@
 # }
 
 module "vpc" {
-  source = "./vpc"
+  source = "././vpc"
 }
 
 module "security_group" {
