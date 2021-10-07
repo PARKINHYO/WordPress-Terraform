@@ -50,6 +50,10 @@ variable "major_engine_version" {
   default = "8.0"
 }
 
+variable "instance_class" {
+  default = "db.t3.micro"
+}
+
 variable "allocated_storage" {
     default = "10"
 }
