@@ -63,7 +63,7 @@ variable "nat_gateway_tags" {
       Name = "osaka-nat-test-wp-inhyo"
   }
 }
-
+    
 variable "private_route_table_tags" {
   default = {
       Name = "osaka-rt-pri-test-wp-inhyo"

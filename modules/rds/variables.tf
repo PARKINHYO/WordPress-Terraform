@@ -19,19 +19,19 @@ variable "rds_tags" {
   
 }
 
-variable "db_default" {
-    default = "osaka-rds-dbdefault-test-wp-inhyo"
+# variable "db_default" {
+#     default = "osaka-rds-dbdefault-test-wp-inhyo"
   
-}
+# }
 
-variable "db_default_tag" {
-    default = "osaka-rds-dbdefault-test-wp-inhyo"
+# variable "db_default_tag" {
+#     default = "osaka-rds-dbdefault-test-wp-inhyo"
   
-}
+# }
 
-variable "db_disabled" {
-    default = "osaka-rds-dbdisabled-test-wp-inhyo"
-}
+# variable "db_disabled" {
+#     default = "osaka-rds-dbdisabled-test-wp-inhyo"
+# }
 
 variable "engine" {
     default = "mysql"
@@ -83,6 +83,31 @@ variable "multi_az" {
   default = false
 }
 
-variable "subnet_ids" {
-  
+variable "skip_final_snapshot" {
+  default = true
+}
+
+variable "deletion_protection" {
+  default = false
+}
+
+variable "performance_insights_enabled" {
+  default = false
+}
+
+variable "create_monitoring_role" {
+  default = false
+}
+
+variable "db_parameter" {
+  default = [
+        {
+      name  = "character_set_client"
+      value = "utf8mb4"
+    },
+    {
+      name  = "character_set_server"
+      value = "utf8mb4"
+    }
+  ]
 }
