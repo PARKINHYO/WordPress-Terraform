@@ -39,15 +39,16 @@ jobs:
       # 검증
       - name: Terraform Validate
         id: validate
-        run: terraform validate -no-color
+        run: |
+          export TF_VAR_db_username=${{ secrets.TF_VAR_DB_USERNAME }}
+          export TF_VAR_db_password=${{ secrets.TF_VAR_DB_PASSWORD }}
+          terraform validate -no-color
       
       
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
         run: |
-          export TF_VAR_db_username=${{ secrets.TF_VAR_DB_USERNAME }}
-          export TF_VAR_db_password=${{ secrets.TF_VAR_DB_PASSWORD }}
           terraform plan -no-color
         continue-on-error: true
 
