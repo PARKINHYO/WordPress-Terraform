@@ -72,7 +72,7 @@ variable "db_name" {
 }
 
 variable "db_username" {
-  default = "ihp001"
+  
 }
 
 variable "db_password" {
