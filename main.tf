@@ -1,8 +1,3 @@
-provider "aws" {
-  skip_region_validation = true
-  region = "ap-northeast-3"
-}
-
 terraform {
   required_providers {
     aws = {
@@ -14,7 +9,7 @@ terraform {
     #   version = "3.0.1"
     # }
   }
-  required_version = ">= 0.12.26"
+  required_version = ">= 0.12.31"
 
   backend "remote" {
     organization = "ihp001"
@@ -23,4 +18,9 @@ terraform {
       name = "WordPress-Terraform"
     }
   }
+}
+
+provider "aws" {
+  skip_region_validation = true
+  region = "ap-northeast-3"
 }
