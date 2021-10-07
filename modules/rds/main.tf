@@ -29,7 +29,7 @@
 # }
 
 module "vpc"{
-  source = "./modules/vpc"
+  source = "./vpc"
 }
 
 module "security_group" {
@@ -108,7 +108,7 @@ module "db" {
   parameters = var.db_parameter
 
   tags = var.rds_tags
-  
+
   db_instance_tags = {
     "Sensitive" = "high"
   }
