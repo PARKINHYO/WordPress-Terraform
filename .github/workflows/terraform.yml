@@ -48,6 +48,9 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           terraform plan -no-color
+        env:
+          TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
+          TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }}
         continue-on-error: true
 
       - uses: actions/github-script@0.9.0
