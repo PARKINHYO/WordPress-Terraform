@@ -11,8 +11,8 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     env:
-      TF_VAR_db_username: ${{ secrets.TF_VAR_db_username }}
-      TF_VAR_db_password: ${{ secrets.TF_VAR_db_password }}
+      TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
+      TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }}
     steps:
 
       # GitHub Actions 기본 컨테이너 환경을 구축함.
@@ -50,8 +50,8 @@ jobs:
         id: plan
         if: github.event_name == 'pull_request'
         run: |
-          export TF_VAR_db_username=${{ secrets.TF_VAR_db_username}}
-          export TF_VAR_db_password=${{ secrets.TF_VAR_db_password}}
+          export TF_VAR_db_username=${{ secrets.TF_VAR_DB_USERNAME}}
+          export TF_VAR_db_password=${{ secrets.TF_VAR_DB_PASSWORD}}
           terraform plan -no-color
         # env:
         #   TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
@@ -95,8 +95,8 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: | 
-          export TF_VAR_db_username=${{ secrets.TF_VAR_db_username}}
-          export TF_VAR_db_password=${{ secrets.TF_VAR_db_password}}
+          export TF_VAR_db_username=${{ secrets.TF_VAR_DB_USERNAME}}
+          export TF_VAR_db_password=${{ secrets.TF_VAR_DB_PASSWORD}}
           terraform apply -auto-approve
         # env:
         #   TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
