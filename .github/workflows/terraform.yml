@@ -22,9 +22,9 @@ jobs:
         with:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }} 
-        env:
-          TF_VAR_db_username: ${{ secrets.TF_VAR_db_username }}
-          TF_VAR_db_password: ${{ secrets.TF_VAR_db_password }}
+        # env:
+        #   TF_VAR_db_username: ${{ secrets.TF_VAR_db_username }}
+        #   TF_VAR_db_password: ${{ secrets.TF_VAR_db_password }}
       
       # 파일 포맷
       - name: Terraform Formats
@@ -47,8 +47,6 @@ jobs:
         id: plan
         if: github.event_name == 'pull_request'
         run: |
-          export TF_VAR_db_username=${{ secrets.TF_VAR_db_username }}
-          export TF_VAR_db_password=${{ secrets.TF_VAR_db_password }}
           terraform plan -no-color
         continue-on-error: true
 
@@ -90,4 +88,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: | 
           terraform apply -auto-approve
+        env:
+          TF_VAR_db_username: ${{ secrets.TF_VAR_db_username }}
+          TF_VAR_db_password: ${{ secrets.TF_VAR_db_password }}
           
