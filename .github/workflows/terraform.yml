@@ -50,8 +50,6 @@ jobs:
         id: plan
         if: github.event_name == 'pull_request'
         run: |
-# export TF_VAR_db_username=${{ secrets.TF_VAR_db_username}}
-# export TF_VAR_db_password=${{ secrets.TF_VAR_db_password}}
           terraform plan -no-color
         # env:
         #   TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
