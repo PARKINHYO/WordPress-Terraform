@@ -50,9 +50,7 @@ jobs:
         id: plan
         if: github.event_name == 'pull_request'
         run: |
-          export TF_VAR_db_username=${{ secrets.TF_VAR_DB_USERNAME}}
-          export TF_VAR_db_password=${{ secrets.TF_VAR_DB_PASSWORD}}
-          terraform plan -no-color
+          TF_VAR_db_username=${{ secrets.TF_VAR_DB_USERNAME }} TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }} terraform plan -no-color
         # env:
         #   TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
         #   TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }}
@@ -95,9 +93,7 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: | 
-          export TF_VAR_db_username=${{ secrets.TF_VAR_DB_USERNAME}}
-          export TF_VAR_db_password=${{ secrets.TF_VAR_DB_PASSWORD}}
-          terraform apply -auto-approve
+          TF_VAR_db_username=${{ secrets.TF_VAR_DB_USERNAME }} TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }} terraform apply -auto-approve
         # env:
         #   TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
         #   TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }}
