@@ -73,14 +73,6 @@ variable "db_name" {
   default = "wordpress"
 }
 
-variable "db_username" {
-  default = "secret"
-}
-
-variable "db_password" {
-  default = "secret"
-}
-
 variable "db_port" {
   default = "3306"
 }
