@@ -74,11 +74,11 @@ variable "db_name" {
 }
 
 variable "db_username" {
-  description = "Username for the RDS mysql instance"
+  default = "secret"
 }
 
 variable "db_password" {
-  description = "Password for the RDS mysql instance"
+  default = "secret"
 }
 
 variable "db_port" {
