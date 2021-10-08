@@ -61,7 +61,7 @@ variable "allocated_storage" {
 }
 
 variable "max_allocated_storage" {
-  default = "10"
+  default = "15"
 
 }
 
