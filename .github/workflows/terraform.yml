@@ -10,6 +10,9 @@ jobs:
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_db_username: ${{ secrets.TF_VAR_db_username }}
+      TF_VAR_db_password: ${{ secrets.TF_VAR_db_password }}
     steps:
 
       # GitHub Actions 기본 컨테이너 환경을 구축함.
@@ -22,9 +25,9 @@ jobs:
         with:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }} 
-        env:
-          TF_VAR_db_username: ${{ secrets.TF_VAR_db_username }}
-          TF_VAR_db_password: ${{ secrets.TF_VAR_db_password }}
+        # env:
+        #   TF_VAR_db_username: ${{ secrets.TF_VAR_db_username }}
+        #   TF_VAR_db_password: ${{ secrets.TF_VAR_db_password }}
       
       # 파일 포맷
       - name: Terraform Formats
