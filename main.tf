@@ -9,7 +9,7 @@ terraform {
   }
 
   backend "remote" {
-    organization = "ihp001" 
+    organization = "ihp001"
 
     workspaces {
       name = "WordPress-Terraform"

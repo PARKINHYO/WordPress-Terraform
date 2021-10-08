@@ -56,14 +56,14 @@ module "security_group" {
 ################################################################################
 
 module "db" {
-  source  = "terraform-aws-modules/rds/aws"
+  source = "terraform-aws-modules/rds/aws"
 
   identifier = var.rds_name
 
   engine               = var.engine
   engine_version       = var.engine_version
-  family               = var.family # DB parameter group
-  major_engine_version = var.major_engine_version      # DB option group
+  family               = var.family               # DB parameter group
+  major_engine_version = var.major_engine_version # DB option group
   instance_class       = var.instance_class
 
   allocated_storage     = var.allocated_storage
@@ -84,12 +84,12 @@ module "db" {
   # enabled_cloudwatch_logs_exports = ["general"]
 
   # backup_retention_period = 0
-  skip_final_snapshot     = true
-  deletion_protection     = false
+  skip_final_snapshot = true
+  deletion_protection = false
 
-  performance_insights_enabled          = false
+  performance_insights_enabled = false
   # performance_insights_retention_period = 7
-  create_monitoring_role                = false
+  create_monitoring_role = false
   # monitoring_interval                   = 60
 
   parameters = var.db_parameter

@@ -1,34 +1,34 @@
 variable "rds_sg_name" {
-    default = "osaka-rds-sg-test-wp-inhyo"
+  default = "osaka-rds-sg-test-wp-inhyo"
 }
 
 variable "rds_sg_tags" {
-    default = {
-        Name = "osaka-rds-sg-test-wp-inhyo"
-    }
-  
+  default = {
+    Name = "osaka-rds-sg-test-wp-inhyo"
+  }
+
 }
 
 variable "rds_name" {
-    default = "osaka-rds-test-wp-inhyo"
-  
+  default = "osaka-rds-test-wp-inhyo"
+
 }
 
 variable "rds_tags" {
-    default = {
-      Name = "osaka-rds-test-wp-inhyo"
-    }
-  
+  default = {
+    Name = "osaka-rds-test-wp-inhyo"
+  }
+
 }
 
 # variable "db_default" {
 #     default = "osaka-rds-dbdefault-test-wp-inhyo"
-  
+
 # }
 
 # variable "db_default_tag" {
 #     default = "osaka-rds-dbdefault-test-wp-inhyo"
-  
+
 # }
 
 # variable "db_disabled" {
@@ -36,12 +36,12 @@ variable "rds_tags" {
 # }
 
 variable "engine" {
-    default = "mysql"
-  
+  default = "mysql"
+
 }
 
 variable "engine_version" {
-    default = "8.0.23"
+  default = "8.0.23"
 }
 
 variable "family" {
@@ -57,12 +57,12 @@ variable "instance_class" {
 }
 
 variable "allocated_storage" {
-    default = "10"
+  default = "10"
 }
 
 variable "max_allocated_storage" {
-    default = "10"
-  
+  default = "10"
+
 }
 
 variable "storage_encrypted" {
@@ -107,7 +107,7 @@ variable "create_monitoring_role" {
 
 variable "db_parameter" {
   default = [
-        {
+    {
       name  = "character_set_client"
       value = "utf8mb4"
     },
