@@ -73,12 +73,13 @@ variable "db_name" {
   default = "wordpress"
 }
 
-# variable "db_username" {
-#   default = "secret"
-# }
-# variable "db_password" {
-#   default = "secret" 
-# }
+variable "db_username" {
+  description = "Username for the RDS mysql instance"
+}
+
+variable "db_password" {
+  description = "Password for the RDS mysql instance"
+}
 
 variable "db_port" {
   default = "3306"

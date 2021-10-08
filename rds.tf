@@ -71,8 +71,8 @@ module "db" {
   storage_encrypted     = var.storage_encrypted
 
   name     = var.db_name
-  username = "${var.db_username}"
-  password = "${var.db_password}"
+  username = var.db_username
+  password = var.db_password
   port     = var.db_port
 
   multi_az               = var.multi_az
