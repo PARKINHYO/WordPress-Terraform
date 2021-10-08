@@ -74,11 +74,11 @@ variable "db_name" {
 }
 
 variable "db_username" {
-  default = "secrect"
+  default = "secret"
 }
 
 variable "db_password" {
-  default = "secrect"
+  default = "secret"
 }
 
 variable "db_port" {
