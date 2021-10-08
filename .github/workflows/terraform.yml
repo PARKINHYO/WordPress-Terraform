@@ -22,6 +22,9 @@ jobs:
         with:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }} 
+        env:
+          TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
+          TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }}
       
       # 파일 포맷
       - name: Terraform Formats
@@ -36,13 +39,16 @@ jobs:
       # 검증
       - name: Terraform Validate
         id: validate
-        run: terraform validate -no-color
+        run: |
+          terraform validate -no-color
       
       
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
         run: |
+          export TF_VAR_db_username=${{ secrets.TF_VAR_DB_USERNAME }}
+          export TF_VAR_db_password=${{ secrets.TF_VAR_DB_PASSWORD }}
           terraform plan -no-color
         continue-on-error: true
 
