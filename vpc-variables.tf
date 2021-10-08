@@ -1,5 +1,5 @@
 variable "region" {
-    default = "ap-northeast-3"
+    default = "ap-ap-southeast-1"
 }
 
 variable "vpc_name" {
