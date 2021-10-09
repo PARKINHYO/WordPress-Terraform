@@ -71,24 +71,6 @@ variable "lt_tags" {
   }]
 }
 
-variable "lc_name" {
-  default = "tf-singa-wp-lc-inhyo"
-}
-
-variable "use_lc" {
-  default = true
-}
-
-variable "create_lc" {
-  default = true
-}
-
-variable "lc_tags" {
-  default = [{
-    Name = "tf-singa-wp-lc-inhyo"
-  }]
-}
-
 variable "alb_bastion_sg_name" {
   default = "tf-singa-wp-alb-bastion-sg-inhyo"
 }
