@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "vpc_name" {
-  default = "osaka-vpc-test-wp-inhyo"
+  default = "singa-vpc-test-wp-inhyo"
 }
 
 variable "vpc_cidr" {
@@ -13,7 +13,7 @@ variable "vpc_cidr" {
 
 variable "vpc_tags" {
   default = {
-    Name = "osaka-vpc-test-wp-inhyo"
+    Name = "singa-vpc-test-wp-inhyo"
   }
 
 }
@@ -32,61 +32,61 @@ variable "intra_subnets" {
 
 variable "igw_tags" {
   default = {
-    Name = "osaka-igw-test-wp-inhyo"
+    Name = "singa-igw-test-wp-inhyo"
   }
 
 }
 
 variable "intra_route_table_tags" {
   default = {
-    Name = "osaka-rt-intra-test-wp-inhyo"
+    Name = "singa-rt-intra-test-wp-inhyo"
   }
 
 }
 
 variable "intra_subnet_tags" {
   default = {
-    Name = "osaka-snet-intra-test-wp-inhyo"
+    Name = "singa-snet-intra-test-wp-inhyo"
   }
 
 }
 
 variable "nat_eip_tags" {
   default = {
-    Name = "osaka-nat-eip-test-wp-inhyo"
+    Name = "singa-nat-eip-test-wp-inhyo"
   }
 
 }
 
 variable "nat_gateway_tags" {
   default = {
-    Name = "osaka-nat-test-wp-inhyo"
+    Name = "singa-nat-test-wp-inhyo"
   }
 }
 
 variable "private_route_table_tags" {
   default = {
-    Name = "osaka-rt-pri-test-wp-inhyo"
+    Name = "singa-rt-pri-test-wp-inhyo"
   }
 }
 
 variable "private_subnet_tags" {
   default = {
-    Name = "osaka-snet-pri-test-wp-inhyo"
+    Name = "singa-snet-pri-test-wp-inhyo"
   }
 
 }
 
 variable "public_route_table_tags" {
   default = {
-    Name = "osaka-rt-pub-test-wp-inhyo"
+    Name = "singa-rt-pub-test-wp-inhyo"
   }
 
 }
 
 variable "public_subnet_tags" {
   default = {
-    Name = "osaka-snet-pub-test-wp-inhyo"
+    Name = "singa-snet-pub-test-wp-inhyo"
   }
 
 }
@@ -120,14 +120,14 @@ variable "enable_dns_support" {
 }
 
 variable "public_subnets_suffix" {
-  default = "osaka-snet-public-test-wp-inhyo"
+  default = "singa-snet-public-test-wp-inhyo"
 
 }
 
 variable "private_subnets_suffix" {
-  default = "osaka-snet-private-test-wp-inhyo"
+  default = "singa-snet-private-test-wp-inhyo"
 }
 
 variable "intra_subnets_suffix" {
-  default = "osaka-snet-intra-test-wp-inhyo"
+  default = "singa-snet-intra-test-wp-inhyo"
 }

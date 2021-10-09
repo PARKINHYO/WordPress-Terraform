@@ -1,38 +1,38 @@
 variable "rds_sg_name" {
-  default = "osaka-rds-sg-test-wp-inhyo"
+  default = "singa-rds-sg-test-wp-inhyo"
 }
 
 variable "rds_sg_tags" {
   default = {
-    Name = "osaka-rds-sg-test-wp-inhyo"
+    Name = "singa-rds-sg-test-wp-inhyo"
   }
 
 }
 
 variable "rds_name" {
-  default = "osaka-rds-test-wp-inhyo"
+  default = "singa-rds-test-wp-inhyo"
 
 }
 
 variable "rds_tags" {
   default = {
-    Name = "osaka-rds-test-wp-inhyo"
+    Name = "singa-rds-test-wp-inhyo"
   }
 
 }
 
 # variable "db_default" {
-#     default = "osaka-rds-dbdefault-test-wp-inhyo"
+#     default = "singa-rds-dbdefault-test-wp-inhyo"
 
 # }
 
 # variable "db_default_tag" {
-#     default = "osaka-rds-dbdefault-test-wp-inhyo"
+#     default = "singa-rds-dbdefault-test-wp-inhyo"
 
 # }
 
 # variable "db_disabled" {
-#     default = "osaka-rds-dbdisabled-test-wp-inhyo"
+#     default = "singa-rds-dbdisabled-test-wp-inhyo"
 # }
 
 variable "engine" {
@@ -108,4 +108,12 @@ variable "db_parameter" {
       value = "utf8mb4"
     }
   ]
+}
+
+variable "db_username" {
+  default = "secret"
+}
+
+variable "db_password" {
+  default = "secret"
 }
