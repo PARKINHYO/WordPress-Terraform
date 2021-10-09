@@ -99,11 +99,12 @@ module "default_lt" {
   # Autoscaling group
   name = var.lt_name
 
-  vpc_zone_identifier = module.vpc.private_subnets
-  min_size            = var.min_size
-  max_size            = var.max_size
-  desired_capacity    = var.desired_capacity
-
+  vpc_zone_identifier       = module.vpc.private_subnets
+  min_size                  = var.min_size
+  max_size                  = var.max_size
+  desired_capacity          = var.desired_capacity
+  wait_for_capacity_timeout = 0
+  enable_monitoring = true
   # Launch template
   use_lt    = var.use_lt
   create_lt = var.create_lt
@@ -111,6 +112,9 @@ module "default_lt" {
   image_id      = var.image_id
   instance_type = var.instance_type
 
+  target_group_arns = module.alb.target_group_arns
+  security_groups   = [module.asg_sg.security_group_id]
+  
   user_data = <<-EOF
             #!/bin/bash
             echo ${module.db.db_instance_address} > .env
@@ -118,26 +122,4 @@ module "default_lt" {
             EOF
 
   tags = var.lt_tags
-}
-
-# Launch configuration
-module "default_lc" {
-  source = "terraform-aws-modules/autoscaling/aws"
-
-  # Autoscaling group
-  name = var.lc_name
-
-  vpc_zone_identifier = module.vpc.private_subnets
-  min_size            = var.min_size
-  max_size            = var.max_size
-  desired_capacity    = var.desired_capacity
-
-  # Launch configuration
-  use_lc    = var.use_lc
-  create_lc = var.create_lc
-
-  image_id      = var.image_id
-  instance_type = var.instance_type
-
-  tags = var.lc_tags
 }

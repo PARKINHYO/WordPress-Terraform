@@ -2,7 +2,7 @@ resource "aws_key_pair" "tf_singa_keypair_bast_WP_inhyo" {
   key_name   = "deployer-key"
   public_key = var.bastion_keypair
 
-}   
+}
 
 module "bastion_security_group" {
   source  = "terraform-aws-modules/security-group/aws"
@@ -25,12 +25,12 @@ module "ec2_instance" {
 
   name = var.bastion_name
 
-  ami                    = var.bastion_ami
-  instance_type          = var.bastion_instance_type
-  key_name               = aws_key_pair.tf_singa_keypair_bast_WP_inhyo.key_name
-  vpc_security_group_ids = [module.bastion_security_group.security_group_id]
-  subnet_id              = element(module.vpc.public_subnets, 0)
-  availability_zone = element(module.vpc.azs, 0)
+  ami                         = var.bastion_ami
+  instance_type               = var.bastion_instance_type
+  key_name                    = aws_key_pair.tf_singa_keypair_bast_WP_inhyo.key_name
+  vpc_security_group_ids      = [module.bastion_security_group.security_group_id]
+  subnet_id                   = element(module.vpc.public_subnets, 0)
+  availability_zone           = element(module.vpc.azs, 0)
   associate_public_ip_address = var.bastion_eip
 
   tags = var.bastion_tags
