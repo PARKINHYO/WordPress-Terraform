@@ -31,3 +31,5 @@ override.tf.json
 .terraform
 test
 test.pub
+app
+app.pub

@@ -1,5 +1,5 @@
 resource "aws_key_pair" "tf_singa_keypair_bast_WP_inhyo" {
-  key_name   = "deployer-key"
+  key_name   = "bastion-key"
   public_key = var.bastion_keypair
 
 }
