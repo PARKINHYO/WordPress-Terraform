@@ -1,3 +1,7 @@
+variable "app_keypair" {
+  default = "secret"
+}
+
 variable "asg_sg_name" {
   default = "tf-singa-test-wp-asg-sg-inhyo"
 }

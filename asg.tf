@@ -1,6 +1,7 @@
-# data "aws_db_instance" "database" {
-#   db_instance_identifier = var.rds_name
-# }
+resource "aws_key_pair" "tf_singa_keypair_app_WP_inhyo" {
+  key_name   = "deployer-key"
+  public_key = var.app_keypair
+}
 
 ################################################################################
 # Supporting Resources
@@ -104,7 +105,7 @@ module "default_lt" {
   max_size                  = var.max_size
   desired_capacity          = var.desired_capacity
   wait_for_capacity_timeout = 0
-  enable_monitoring = true
+  enable_monitoring         = true
   # Launch template
   use_lt    = var.use_lt
   create_lt = var.create_lt
@@ -114,11 +115,12 @@ module "default_lt" {
 
   target_group_arns = module.alb.target_group_arns
   security_groups   = [module.asg_sg.security_group_id]
-  
+  key_name          = aws_key_pair.tf_singa_keypair_app_WP_inhyo.key_name
+
   user_data = <<-EOF
             #!/bin/bash
-            echo ${module.db.db_instance_address} > .env
-            docker compose up -d
+            echo ${module.db.db_instance_endpoint} > .env
+            docker-compose up -d
             EOF
 
   tags = var.lt_tags
