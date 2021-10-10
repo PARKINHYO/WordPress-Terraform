@@ -12,7 +12,7 @@ module "bastion_security_group" {
   description = "Security group for example usage with EC2 instance"
   vpc_id      = module.vpc.vpc_id
 
-  ingress_cidr_blocks = ["0.0.0.0/0"]
+  ingress_cidr_blocks = ["118.222.188.115/32"]
   ingress_rules       = ["ssh-tcp"]
   egress_rules        = ["all-all"]
 
