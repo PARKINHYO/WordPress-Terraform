@@ -1,5 +1,5 @@
 resource "aws_key_pair" "tf_singa_keypair_app_WP_inhyo" {
-  key_name   = "deployer-key"
+  key_name   = "app-key"
   public_key = var.app_keypair
 }
 
