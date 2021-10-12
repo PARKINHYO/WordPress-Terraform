@@ -1,2 +1,2 @@
 # WordPress-Terraform
-Build wordpress on aws through terraform.
+terraform study
