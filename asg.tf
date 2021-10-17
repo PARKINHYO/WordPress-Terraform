@@ -110,16 +110,12 @@ module "asg_sg" {
       source_security_group_id = module.alb_http_sg.security_group_id # ALB에서 만든 HTTP Security Group id
     },
     {
-      # rule                     = "ssh-tcp"
-      from_port = 22
-      to_port = 22
-      protocol = 6
-      description = "submodule rule로 지정하니깐 적용이 안됨.."
+      rule                     = "ssh-tcp"
       source_security_group_id = module.alb_bastion_sg.security_group_id # ALB에서 만든 SSH Security Group id
     }
   ]
 
-  number_of_computed_ingress_with_source_security_group_id = 1 # computed_ingress_with_source_security_group_id 갯수
+  number_of_computed_ingress_with_source_security_group_id = 2 # computed_ingress_with_source_security_group_id 갯수
 
   egress_rules = ["all-all"] # outbound 전체로 열어준다. 
 
