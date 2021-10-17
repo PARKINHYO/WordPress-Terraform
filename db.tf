@@ -61,13 +61,13 @@ module "db_ec2" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
-  name                   = var.db_name                                                          # 서버 이름
-  ami                    = var.db_ami                                                           # ubuntu 20.04 이미지
-  instance_type          = var.db_instance_type                                                 # 인스턴스 유형
-  key_name               = aws_key_pair.tf_singa_keypair_db_wp_inhyo.key_name                   # 위에서 만든 키 이름
+  name                   = var.db_name                                                                # 서버 이름
+  ami                    = var.db_ami                                                                 # ubuntu 20.04 이미지
+  instance_type          = var.db_instance_type                                                       # 인스턴스 유형
+  key_name               = aws_key_pair.tf_singa_keypair_db_wp_inhyo.key_name                         # 위에서 만든 키 이름
   vpc_security_group_ids = [module.db_mysql_sg.security_group_id, module.db_ssh_sg.security_group_id] # 위에서 생성한 security group 모듈의 id
-  subnet_id              = element(module.vpc.intra_subnets, 0)                                 # vpc 모듈 public subnet 첫 번째 원소 10.70.11.0/24
-  availability_zone      = element(module.vpc.azs, 0)                                           # vpc 모듈 가용영역 속성의 첫 번째 값 1a
+  subnet_id              = element(module.vpc.intra_subnets, 0)                                       # vpc 모듈 public subnet 첫 번째 원소 10.70.11.0/24
+  availability_zone      = element(module.vpc.azs, 0)                                                 # vpc 모듈 가용영역 속성의 첫 번째 값 1a
   private_ip             = var.db_private_ip
   tags                   = var.db_tags
 }
