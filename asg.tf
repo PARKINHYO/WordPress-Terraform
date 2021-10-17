@@ -110,7 +110,7 @@ module "asg_sg" {
       source_security_group_id = module.alb_http_sg.security_group_id # ALB에서 만든 HTTP Security Group id
     },
     {
-      rule                     = "bastion-22-tcp"
+      rule                     = "ssh-tcp"
       source_security_group_id = module.alb_bastion_sg.security_group_id # ALB에서 만든 SSH Security Group id
     }
   ]
