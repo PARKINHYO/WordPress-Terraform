@@ -20,7 +20,7 @@
 
 # key pair
 resource "aws_key_pair" "tf_singa_keypair_app_wp_inhyo" {
-  key_name   = "app-key"
+  key_name   = "app-key-new"
   public_key = var.app_keypair
 }
 
@@ -108,14 +108,14 @@ module "asg_sg" {
     {
       rule                     = "http-80-tcp"
       source_security_group_id = module.alb_http_sg.security_group_id # ALB에서 만든 HTTP Security Group id
-    },
-    {
-      rule                     = "ssh-tcp"
-      source_security_group_id = module.alb_bastion_sg.security_group_id # ALB에서 만든 SSH Security Group id
     }
+    # {
+    #   rule                     = "ssh-tcp"
+    #   source_security_group_id = module.alb_bastion_sg.security_group_id # ALB에서 만든 SSH Security Group id
+    # }
   ]
 
-  number_of_computed_ingress_with_source_security_group_id = 2 # computed_ingress_with_source_security_group_id 갯수
+  number_of_computed_ingress_with_source_security_group_id = 1 # computed_ingress_with_source_security_group_id 갯수
 
   egress_rules = ["all-all"] # outbound 전체로 열어준다. 
 
@@ -145,7 +145,7 @@ module "default_lt" {
   instance_type = var.instance_type # 애플리케이션 서버 인스턴스 유형
 
   target_group_arns = module.alb.target_group_arns                        # ALB arn
-  security_groups   = [module.asg_sg.security_group_id]                   # ASG에 쓸 Security Group id
+  security_groups   = [module.asg_sg.security_group_id, module.alb_bastion_sg.security_group_id]                   # ASG에 쓸 Security Group id
   key_name          = aws_key_pair.tf_singa_keypair_app_wp_inhyo.key_name # 애플리케이션 keypair
 
   tags = var.lt_tags # 태그
