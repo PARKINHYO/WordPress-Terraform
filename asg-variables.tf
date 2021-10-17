@@ -1,18 +1,18 @@
+####################################################################################################
+# asg-variables.tf
+# asg에 관련된 변수들을 선언 해놓은 파일 입니다. 대부분 asg.tf에서 var.xxxx 형태로 변수를 호출하여 사용 합니다. 
+####################################################################################################
+
+
+
+# keypair
 variable "app_keypair" {
   default = "secret"
 }
 
-variable "asg_sg_name" {
-  default = "tf-singa-test-wp-asg-sg-inhyo"
-}
 
-variable "asg_sg_tags" {
-  default = {
-    Name = "tf-singa-wp-asg-sg-inhyo"
-  }
 
-}
-
+# ALB Security Group(HTTP)
 variable "alb_http_sg_name" {
   default = "tf-singa-wp-alb-http-sg-inhyo"
 }
@@ -23,6 +23,41 @@ variable "alb_http_sg_tags" {
   }
 }
 
+
+
+# ALB Security Group(SSH)
+variable "alb_bastion_sg_name" {
+  default = "tf-singa-wp-alb-bastion-sg-inhyo"
+}
+
+variable "alb_bastion_sg_tags" {
+  default = {
+    Name = "tf-singa-wp-alb-bastion-sg-inhyo"
+  }
+}
+
+variable "alb_bastion_sg_ingress_cidr_blocks" {
+  default = [
+    "10.70.11.11/32"
+  ]
+}
+
+
+
+# ASG Security Group
+variable "asg_sg_name" {
+  default = "tf-singa-test-wp-asg-sg-inhyo"
+}
+
+variable "asg_sg_tags" {
+  default = {
+    Name = "tf-singa-wp-asg-sg-inhyo"
+  }
+}
+
+
+
+# ALB 관련 변수
 variable "alb_name" {
   default = "tf-singa-wp-alb-inhyo"
 }
@@ -37,6 +72,9 @@ variable "alb_tags" {
   }
 }
 
+
+
+# ASG 관련 변수 
 variable "lt_name" {
   default = "tf-singa-wp-lt-inhyo"
 }
@@ -62,25 +100,15 @@ variable "create_lt" {
 }
 
 variable "image_id" {
-  default = "ami-012d415ce72511b81"
+  default = "ami-09f36c6434f043b29"
 }
 
 variable "instance_type" {
-  default = "t3.nano"
+  default = "t2.micro"
 }
 
 variable "lt_tags" {
   default = [{
     Name = "tf-singa-wp-lt-inhyo"
   }]
-}
-
-variable "alb_bastion_sg_name" {
-  default = "tf-singa-wp-alb-bastion-sg-inhyo"
-}
-
-variable "alb_bastion_sg_tags" {
-  default = {
-    Name = "tf-singa-wp-alb-bastion-sg-inhyo"
-  }
 }

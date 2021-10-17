@@ -1,119 +1,119 @@
-variable "rds_sg_name" {
-  default = "singa-rds-sg-test-wp-inhyo"
-}
+# variable "rds_sg_name" {
+#   default = "singa-rds-sg-test-wp-inhyo"
+# }
 
-variable "rds_sg_tags" {
-  default = {
-    Name = "singa-rds-sg-test-wp-inhyo"
-  }
-
-}
-
-variable "rds_name" {
-  default = "singa-rds-test-wp-inhyo"
-
-}
-
-variable "rds_tags" {
-  default = {
-    Name = "singa-rds-test-wp-inhyo"
-  }
-
-}
-
-# variable "db_default" {
-#     default = "singa-rds-dbdefault-test-wp-inhyo"
+# variable "rds_sg_tags" {
+#   default = {
+#     Name = "singa-rds-sg-test-wp-inhyo"
+#   }
 
 # }
 
-# variable "db_default_tag" {
-#     default = "singa-rds-dbdefault-test-wp-inhyo"
+# variable "rds_name" {
+#   default = "singa-rds-test-wp-inhyo"
 
 # }
 
-# variable "db_disabled" {
-#     default = "singa-rds-dbdisabled-test-wp-inhyo"
+# variable "rds_tags" {
+#   default = {
+#     Name = "singa-rds-test-wp-inhyo"
+#   }
+
 # }
 
-variable "engine" {
-  default = "mysql"
+# # variable "db_default" {
+# #     default = "singa-rds-dbdefault-test-wp-inhyo"
 
-}
+# # }
 
-variable "engine_version" {
-  default = "8.0.23"
-}
+# # variable "db_default_tag" {
+# #     default = "singa-rds-dbdefault-test-wp-inhyo"
 
-variable "family" {
-  default = "mysql8.0"
-}
+# # }
 
-variable "major_engine_version" {
-  default = "8.0"
-}
+# # variable "db_disabled" {
+# #     default = "singa-rds-dbdisabled-test-wp-inhyo"
+# # }
 
-variable "instance_class" {
-  default = "db.t3.micro"
-}
+# variable "engine" {
+#   default = "mysql"
 
-variable "allocated_storage" {
-  default = "10"
-}
+# }
 
-variable "max_allocated_storage" {
-  default = "15"
+# variable "engine_version" {
+#   default = "8.0.23"
+# }
 
-}
+# variable "family" {
+#   default = "mysql8.0"
+# }
 
-variable "storage_encrypted" {
-  default = false
-}
+# variable "major_engine_version" {
+#   default = "8.0"
+# }
 
-variable "db_name" {
-  default = "wordpress"
-}
+# variable "instance_class" {
+#   default = "db.t3.micro"
+# }
 
-variable "db_port" {
-  default = "3306"
-}
+# variable "allocated_storage" {
+#   default = "10"
+# }
 
-variable "multi_az" {
-  default = false
-}
+# variable "max_allocated_storage" {
+#   default = "15"
 
-variable "skip_final_snapshot" {
-  default = true
-}
+# }
 
-variable "deletion_protection" {
-  default = false
-}
+# variable "storage_encrypted" {
+#   default = false
+# }
 
-variable "performance_insights_enabled" {
-  default = false
-}
+# variable "db_name" {
+#   default = "wordpress"
+# }
 
-variable "create_monitoring_role" {
-  default = false
-}
+# variable "db_port" {
+#   default = "3306"
+# }
 
-variable "db_parameter" {
-  default = [
-    {
-      name  = "character_set_client"
-      value = "utf8mb4"
-    },
-    {
-      name  = "character_set_server"
-      value = "utf8mb4"
-    }
-  ]
-}
+# variable "multi_az" {
+#   default = false
+# }
 
-variable "db_username" {
-  default = "secret"
-}
+# variable "skip_final_snapshot" {
+#   default = true
+# }
 
-variable "db_password" {
-  default = "secret"
-}
+# variable "deletion_protection" {
+#   default = false
+# }
+
+# variable "performance_insights_enabled" {
+#   default = false
+# }
+
+# variable "create_monitoring_role" {
+#   default = false
+# }
+
+# variable "db_parameter" {
+#   default = [
+#     {
+#       name  = "character_set_client"
+#       value = "utf8mb4"
+#     },
+#     {
+#       name  = "character_set_server"
+#       value = "utf8mb4"
+#     }
+#   ]
+# }
+
+# variable "db_username" {
+#   default = "secret"
+# }
+
+# variable "db_password" {
+#   default = "secret"
+# }
