@@ -29,7 +29,9 @@ override.tf.json
 # example: *tfplan*
 .terraform.lock.hcl
 .terraform
-test
-test.pub
-app
-app.pub
+bastion-key
+bastion-key.pub
+app-key
+app-key.pub
+db-key
+db-key.pub

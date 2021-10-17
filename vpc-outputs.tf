@@ -1,10 +1,15 @@
-# VPC
+##########################################################################
+# vpc-outputs.tf
+# VPC를 생성한 뒤 나오는 리소스 결과들을 확인하기 위해 정의 해놓은 outputs입니다. 
+##########################################################################
+
+# vpc id
 output "vpc_id" {
   description = "The ID of the VPC"
   value       = module.vpc.vpc_id
 }
 
-# Subnets
+# subnet id
 output "private_subnets" {
   description = "List of IDs of private subnets"
   value       = module.vpc.private_subnets
