@@ -27,13 +27,13 @@ resource "aws_key_pair" "tf_singa_keypair_bast_wp_inhyo" {
 # 코드 수정시에 Elastic IP를 다시 할당하지 않고 배스천 서버에 재사용해서 
 # 항상 처음 할당된 Elastic IP를 사용하게 됩니다. 
 resource "aws_eip_association" "tf_singa_eip_associ_inhyo" {
-  instance_id = module.bast_ec2.id
+  instance_id   = module.bast_ec2.id
   allocation_id = aws_eip.tf_singa_bast_eip_inhyo.id
 }
 
 # bastion 서버에 elastic ip를 할당하기 위해 eip 리소스로 고정 ip를 1개 성생합니다. 
 resource "aws_eip" "tf_singa_bast_eip_inhyo" {
-  vpc      = true
+  vpc = true
 }
 
 # bastion용 security group을 모듈을 통해 생성합니다. 

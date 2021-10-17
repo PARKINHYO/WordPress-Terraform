@@ -110,7 +110,11 @@ module "asg_sg" {
       source_security_group_id = module.alb_http_sg.security_group_id # ALB에서 만든 HTTP Security Group id
     },
     {
-      rule                     = "ssh-tcp"
+      # rule                     = "ssh-tcp"
+      from_port = 22
+      to_port = 22
+      protocol = 6
+      description = "submodule rule로 지정하니깐 적용이 안됨.."
       source_security_group_id = module.alb_bastion_sg.security_group_id # ALB에서 만든 SSH Security Group id
     }
   ]
