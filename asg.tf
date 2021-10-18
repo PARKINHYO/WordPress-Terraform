@@ -44,34 +44,18 @@ module "alb_http_sg" {
 
 
 
-# # ALB SSH를 위한 Security Group
-# module "alb_bastion_sg" {
-#   # Security Group 모듈 안의 ssh 서브 모듈을 활용해서 ssh Security Group를 완성
-#   source  = "terraform-aws-modules/security-group/aws//modules/ssh"
-#   version = "~> 4.0"
-
-#   name   = var.alb_bastion_sg_name # 이름
-#   vpc_id = module.vpc.vpc_id       # 생성한 VPC id
-
-#   ingress_cidr_blocks = var.alb_bastion_sg_ingress_cidr_blocks # Bastion 서버 내부 ip
-
-#   tags = var.alb_bastion_sg_tags # 태그
-# }
-
-# ASG SSH Security Group
-module "asg_ssh_sg" {
-  source  = "terraform-aws-modules/security-group/aws"
+# ASG  SSH를 위한 Security Group
+module "asg_bastion_sg" {
+  # Security Group 모듈 안의 ssh 서브 모듈을 활용해서 ssh Security Group를 완성
+  source  = "terraform-aws-modules/security-group/aws//modules/ssh"
   version = "~> 4.0"
 
-  name   = var.asg_ssh_sg_name
-  vpc_id = module.vpc.vpc_id
+  name   = var.asg_bastion_sg_name # 이름
+  vpc_id = module.vpc.vpc_id       # 생성한 VPC id
 
-  ingress_cidr_blocks = var.asg_ssh_sg_ingress_cidr_blocks
-  ingress_rules       = ["ssh-tcp"]
-  egress_rules        = ["all-all"]
+  ingress_cidr_blocks = var.asg_bastion_sg_ingress_cidr_blocks # Bastion 서버 내부 ip
 
-
-  tags = var.db_ssh_sg_tags
+  tags = var.asg_bastion_sg_tags # 태그
 }
 
 
@@ -124,14 +108,14 @@ module "asg_sg" {
     {
       rule                     = "http-80-tcp"
       source_security_group_id = module.alb_http_sg.security_group_id # ALB에서 만든 HTTP Security Group id
+    }, 
+    {
+      rule                     = "ssh-tcp"
+      source_security_group_id = module.asg_bastion_sg.security_group_id # ALB에서 만든 SSH Security Group id
     }
-    # {
-    #   rule                     = "ssh-tcp"
-    #   source_security_group_id = module.alb_bastion_sg.security_group_id # ALB에서 만든 SSH Security Group id
-    # }
   ]
 
-  number_of_computed_ingress_with_source_security_group_id = 1 # computed_ingress_with_source_security_group_id 갯수
+  number_of_computed_ingress_with_source_security_group_id = 2 # computed_ingress_with_source_security_group_id 갯수
 
   egress_rules = ["all-all"] # outbound 전체로 열어준다. 
 
@@ -161,7 +145,7 @@ module "default_lt" {
   instance_type = var.instance_type # 애플리케이션 서버 인스턴스 유형
 
   target_group_arns = module.alb.target_group_arns                        # ALB arn
-  security_groups   = [module.asg_sg.security_group_id, module.asg_ssh_sg.security_group_id]                   # ASG에 쓸 Security Group id
+  security_groups   = [module.asg_sg.security_group_id]                   # ASG에 쓸 Security Group id
   key_name          = aws_key_pair.tf_singa_keypair_app_wp_inhyo.key_name # 애플리케이션 keypair
 
   tags = var.lt_tags # 태그
