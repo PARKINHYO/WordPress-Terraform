@@ -50,7 +50,7 @@ variable "asg_ssh_sg_name" {
 
 variable "asg_ssh_sg_cidr_blocks" {
   default = [
-    "10.70.11.11"
+    "10.70.11.11/32"
   ]
 }
 
