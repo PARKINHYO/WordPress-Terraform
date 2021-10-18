@@ -128,7 +128,7 @@ module "asg_sg" {
     }
   ]
 
-  number_of_computed_ingress_with_source_security_group_id = 2 # computed_ingress_with_source_security_group_id 갯수
+  number_of_computed_ingress_with_source_security_group_id = 1 # computed_ingress_with_source_security_group_id 갯수
 
   egress_rules = ["all-all"] # outbound 전체로 열어준다. 
 
