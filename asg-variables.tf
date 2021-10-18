@@ -26,20 +26,38 @@ variable "alb_http_sg_tags" {
 
 
 # ALB Security Group(SSH)
-variable "asg_bastion_sg_name" {
-  default = "tf-singa-wp-alb-bastion-sg-inhyo"
+# variable "asg_bastion_sg_name" {
+#   default = "tf-singa-wp-alb-bastion-sg-inhyo"
+# }
+
+# variable "asg_bastion_sg_tags" {
+#   default = {
+#     Name = "tf-singa-wp-alb-bastion-sg-inhyo"
+#   }
+# }
+
+# variable "asg_bastion_sg_ingress_cidr_blocks" {
+#   default = [
+#     "10.70.11.11/32"
+#   ]
+# }
+
+
+# ASG SSH security group submodule
+variable "asg_ssh_sg_name" {
+  default = "tf-singa-wp-asg-ssh-sg-inhyo"
 }
 
-variable "asg_bastion_sg_tags" {
-  default = {
-    Name = "tf-singa-wp-alb-bastion-sg-inhyo"
-  }
-}
-
-variable "asg_bastion_sg_ingress_cidr_blocks" {
+variable "asg_ssh_sg_cidr_blocks" {
   default = [
-    "10.70.11.11/32"
+    "10.70.11.11"
   ]
+}
+
+variable "asg_ssh_sg_tags" {
+  default = {
+    Name = "tf-singa-wp-asg-ssh-sg-inhyo"
+  }
 }
 
 
@@ -100,7 +118,7 @@ variable "create_lt" {
 }
 
 variable "image_id" {
-  default = "ami-09f36c6434f043b29"
+  default = "ami-0f13512282c57a381"
 }
 
 variable "instance_type" {
