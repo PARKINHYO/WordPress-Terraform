@@ -35,6 +35,4 @@ app-key
 app-key.pub
 db-key
 db-key.pub
-rds.tf
-rds-variables.tf
-rds-outputs.tf
+rds
