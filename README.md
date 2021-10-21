@@ -1,7 +1,7 @@
 <h1 align="center">Build WordPress on AWS with Terraform</h1>
 <p align="center">
   <a href="https://github.com/PARKINHYO/WordPress-Terraform">
-    <img alt="Version" src="https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000" />
+    <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   </a>  
   <a href="https://github.com/PARKINHYO/corona-kakao-bot/blob/master/README.md" target="_blank">
   </a>
