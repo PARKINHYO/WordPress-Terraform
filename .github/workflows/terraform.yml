@@ -23,23 +23,23 @@ jobs:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }} 
       
-      # 파일 포맷
+  
       - name: Terraform Formats
         id: fmt
         run: terraform fmt -diff
 
-      # 설정 파일 바탕으로 terraform init
+
       - name: Terraform Init
         id: init
         run: terraform init
       
-      # 검증
+   
       - name: Terraform Validate
         id: validate
         run: |
           terraform validate -no-color
       
-      
+      # terraform plan
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
@@ -81,7 +81,7 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-      # Terraform으로 인프라 생성
+      # terraform apply
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: | 

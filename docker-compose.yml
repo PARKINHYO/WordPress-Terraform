@@ -1,0 +1,13 @@
+# docker-compose.yml
+version: '3.7'
+services:
+ wordpress:
+   image: wordpress:latest
+   ports:
+     - 80:80
+   restart: always
+   environment:
+     WORDPRESS_DB_HOST: 10.70.31.31:3306
+     WORDPRESS_DB_USER: root
+     WORDPRESS_DB_PASSWORD: (비번)
+     WORDPRESS_DB_NAME: wordpress

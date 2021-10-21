@@ -57,7 +57,7 @@ variable "db_name" {
 }
 
 variable "db_ami" {
-  default = "ami-0dee86061a4063fc4"
+  default = "ami-013a8c4cc6e8937a9"
 }
 
 variable "db_instance_type" {
