@@ -17,13 +17,11 @@
 #################################################################################################################################
 
 
-
 # key pair
 resource "aws_key_pair" "tf_singa_keypair_app_wp_inhyo" {
-  key_name   = "app-key-new"
+  key_name   = "app-key"
   public_key = var.app_keypair
 }
-
 
 
 # ALB HTTP를 위한 Security Group
@@ -41,23 +39,6 @@ module "alb_http_sg" {
   tags = var.alb_http_sg_tags # 태그
 
 }
-
-
-
-# # ASG  SSH를 위한 Security Group
-# module "asg_bastion_sg" {
-#   # Security Group 모듈 안의 ssh 서브 모듈을 활용해서 ssh Security Group를 완성
-#   source  = "terraform-aws-modules/security-group/aws//modules/ssh"
-#   version = "~> 4.0"
-
-#   name   = var.asg_bastion_sg_name # 이름
-#   vpc_id = module.vpc.vpc_id       # 생성한 VPC id
-
-#   ingress_cidr_blocks = var.asg_bastion_sg_ingress_cidr_blocks # Bastion 서버 내부 ip
-
-#   tags = var.asg_bastion_sg_tags # 태그
-# }
-
 
 
 # asg용 security group(ssh)을 모듈을 통해 생성합니다. 
@@ -120,7 +101,7 @@ module "asg_sg" {
   name   = var.asg_sg_name   # 이름 
   vpc_id = module.vpc.vpc_id # VPC id
 
-  # ALB에서 만든 Security Group 2개(HTTP, SSH)를 가지고 와서 Security Group을 만든다. 
+  # ALB에서 만든 Security Group을 가지고 와서 Security Group을 만든다. 
   computed_ingress_with_source_security_group_id = [
     {
       rule                     = "http-80-tcp"
@@ -134,7 +115,6 @@ module "asg_sg" {
 
   tags = var.asg_sg_tags # 태그
 }
-
 
 
 # ASG. Launch template을 테라폼 모듈을 통해서 만든다. 
@@ -157,9 +137,9 @@ module "default_lt" {
   image_id      = var.image_id      # 애플리케이션 서버의 ami 
   instance_type = var.instance_type # 애플리케이션 서버 인스턴스 유형
 
-  target_group_arns = module.alb.target_group_arns                        # ALB arn
-  security_groups   = [module.asg_sg.security_group_id, module.asg_ssh_sg.security_group_id]                   # ASG에 쓸 Security Group id
-  key_name          = aws_key_pair.tf_singa_keypair_app_wp_inhyo.key_name # 애플리케이션 keypair
+  target_group_arns = module.alb.target_group_arns                                           # ALB arn
+  security_groups   = [module.asg_sg.security_group_id, module.asg_ssh_sg.security_group_id] # ASG에 쓸 Security Group id
+  key_name          = aws_key_pair.tf_singa_keypair_app_wp_inhyo.key_name                    # 애플리케이션 keypair
 
   tags = var.lt_tags # 태그
 }

@@ -10,7 +10,7 @@ variable "region" {
 
 # vpc name
 variable "vpc_name" {
-  default = "singa-vpc-test-wp-inhyo"
+  default = "singa-vpc-wp-inhyo"
 }
 
 # vpc cidr
@@ -22,7 +22,7 @@ variable "vpc_cidr" {
 # vpc 태그
 variable "vpc_tags" {
   default = {
-    Name = "singa-vpc-test-wp-inhyo"
+    Name = "singa-vpc-wp-inhyo"
   }
 
 }
@@ -45,7 +45,7 @@ variable "intra_subnets" {
 # igw 태그
 variable "igw_tags" {
   default = {
-    Name = "singa-igw-test-wp-inhyo"
+    Name = "singa-igw-wp-inhyo"
   }
 
 }
@@ -53,7 +53,7 @@ variable "igw_tags" {
 # db routing table 태그
 variable "intra_route_table_tags" {
   default = {
-    Name = "singa-rt-intra-test-wp-inhyo"
+    Name = "singa-rt-intra-wp-inhyo"
   }
 
 }
@@ -61,7 +61,7 @@ variable "intra_route_table_tags" {
 # db sunbet 태그
 variable "intra_subnet_tags" {
   default = {
-    Name = "singa-snet-intra-test-wp-inhyo"
+    Name = "singa-snet-intra-wp-inhyo"
   }
 
 }
@@ -69,7 +69,7 @@ variable "intra_subnet_tags" {
 # NAT Elastic 태그
 variable "nat_eip_tags" {
   default = {
-    Name = "singa-nat-eip-test-wp-inhyo"
+    Name = "singa-nat-eip-wp-inhyo"
   }
 
 }
@@ -77,21 +77,21 @@ variable "nat_eip_tags" {
 # NAT 게이트웨이 태그
 variable "nat_gateway_tags" {
   default = {
-    Name = "singa-nat-test-wp-inhyo"
+    Name = "singa-nat-wp-inhyo"
   }
 }
 
 # app routing table 태그
 variable "private_route_table_tags" {
   default = {
-    Name = "singa-rt-pri-test-wp-inhyo"
+    Name = "singa-rt-pri-wp-inhyo"
   }
 }
 
 # app subnet 태그
 variable "private_subnet_tags" {
   default = {
-    Name = "singa-snet-pri-test-wp-inhyo"
+    Name = "singa-snet-pri-wp-inhyo"
   }
 
 }
@@ -99,7 +99,7 @@ variable "private_subnet_tags" {
 # bastion routing table 태그
 variable "public_route_table_tags" {
   default = {
-    Name = "singa-rt-pub-test-wp-inhyo"
+    Name = "singa-rt-pub-wp-inhyo"
   }
 
 }
@@ -107,7 +107,7 @@ variable "public_route_table_tags" {
 # public subnet 태그
 variable "public_subnet_tags" {
   default = {
-    Name = "singa-snet-pub-test-wp-inhyo"
+    Name = "singa-snet-pub-wp-inhyo"
   }
 
 }
@@ -144,14 +144,14 @@ variable "enable_dns_support" {
 
 # Subnet names 설정
 variable "public_subnets_suffix" {
-  default = "singa-snet-public-test-wp-inhyo"
+  default = "singa-snet-public-wp-inhyo"
 
 }
 
 variable "private_subnets_suffix" {
-  default = "singa-snet-private-test-wp-inhyo"
+  default = "singa-snet-private-wp-inhyo"
 }
 
 variable "intra_subnets_suffix" {
-  default = "singa-snet-intra-test-wp-inhyo"
+  default = "singa-snet-intra-wp-inhyo"
 }
