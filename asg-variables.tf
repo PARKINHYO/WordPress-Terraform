@@ -4,13 +4,10 @@
 ####################################################################################################
 
 
-
 # keypair
 variable "app_keypair" {
   default = "secret"
 }
-
-
 
 # ALB Security Group(HTTP)
 variable "alb_http_sg_name" {
@@ -22,26 +19,6 @@ variable "alb_http_sg_tags" {
     Name = "tf-singa-wp-alb-http-sg-inhyo"
   }
 }
-
-
-
-# ALB Security Group(SSH)
-# variable "asg_bastion_sg_name" {
-#   default = "tf-singa-wp-alb-bastion-sg-inhyo"
-# }
-
-# variable "asg_bastion_sg_tags" {
-#   default = {
-#     Name = "tf-singa-wp-alb-bastion-sg-inhyo"
-#   }
-# }
-
-# variable "asg_bastion_sg_ingress_cidr_blocks" {
-#   default = [
-#     "10.70.11.11/32"
-#   ]
-# }
-
 
 # ASG SSH security group submodule
 variable "asg_ssh_sg_name" {
@@ -59,7 +36,6 @@ variable "asg_ssh_sg_tags" {
     Name = "tf-singa-wp-asg-ssh-sg-inhyo"
   }
 }
-
 
 
 # ASG Security Group

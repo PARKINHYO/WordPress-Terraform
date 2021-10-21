@@ -11,13 +11,6 @@ variable "bastion_sg_name" {
   default = "tf-singa-wp-bastion-sg-inhyo"
 }
 
-variable "bastion_sg_cidr_blocks" {
-  default = [
-    "211.168.91.10/32",  # company ip
-    "118.222.188.115/32" # home ip
-  ]
-}
-
 variable "bastion_sg_tags" {
   default = {
     Name = "tf-singa-wp-bastion-sg-inhyo"
