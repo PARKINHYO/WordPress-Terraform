@@ -42,7 +42,7 @@
 |Name|tf-singa-wp-bastion-sg-inhyo|Inbound| | | | | |
 |:----|:----|:----|:----|:----|:----|:----|:----|
 | | |**IP version**|**Type**|**Protocol**|**Port**|**Source**|**Description**|
-| | |IPv4|SSH|TCP|22|118.222.188.115/32|Home|
+| | |IPv4|SSH|TCP|22|x.x.x.x/32|Home|
 | | |**Outbound**| | | | | |
 | | |**IP version**|**Type**|**Protocol**|**Port**|**Source**|**Description**|
 | | |IPV4|all|all|all|0.0.0.0/0|-|
@@ -101,7 +101,7 @@
 
 |Account|No|Instance Name|Instance Type|OS|IPv4(Int)|IPv4(Ext)|Subnet|Security Group|Storage(GB)|Keypair|
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
-|global-demo(959411157271)|1|tf-singa-wp-bastion-pub-inhyo|t2.nano|Ubuntu Server 20.04 LTS|10.70.11.11|18.136.156.107|tf-sub-singa-wp-bast-inhyo-a|tf-singa-wp-bastion-sg-inhyo |8| tf-singa-wp-keypair-pub-inhyo|
+|global-demo(959411157271)|1|tf-singa-wp-bastion-pub-inhyo|t2.nano|Ubuntu Server 20.04 LTS|10.70.11.11|x.x.x.x|tf-sub-singa-wp-bast-inhyo-a|tf-singa-wp-bastion-sg-inhyo |8| tf-singa-wp-keypair-pub-inhyo|
 |global-demo(959411157271)|2|tf-singa-wp-app-pri-inhyo|t2.micro|Ubuntu Server 20.04 LTS|-|-|tf-sub-singa-wp-app-inhyo-a|tf-singa-wp-asg-sg-inhyo |8|tf-singa-wp-keypair-app-inhyo|
 |global-demo(959411157271)|3|tf-singa-wp-db-pri-inhyo|t2.micro|Ubuntu Server 20.04 LTS|10.70.31.31|-|tf-sub-singa-wp-db-inhyo-a|tf-singa-wp-db-ssh-sg-inhyo, tf-singa-wp-db-mysql-sg-inhyo| 8|tf-singa-wp-keypair-db-inhyo|
 
